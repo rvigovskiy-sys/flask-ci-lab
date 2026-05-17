@@ -73,4 +73,4 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/flask-ci-lab:latest
-            ${{ secrets.DOCKER_USERNAME }}/flask-ci-lab:${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/flask-ci-lab:${{ github.sha }}           
