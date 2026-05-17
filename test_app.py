@@ -24,3 +24,4 @@ def test_info(client):
     response = client.get('/info')
     assert response.status_code == 200
     assert 'version' in response.get_json()
+    
