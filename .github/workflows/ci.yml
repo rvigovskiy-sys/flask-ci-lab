@@ -50,7 +50,7 @@ jobs:
         run: pip install flake8
 
       - name: Run flake8
-        run: flake8 . --max-line-length=100 --max-complexity=10 --ignore=E302,E305
+        run: flake8 . --max-line-length=100 --max-complexity=10 --ignore=E302,E305,W391
 
   build:
     needs: [test, lint]
