@@ -50,27 +50,4 @@ jobs:
         run: pip install flake8
 
       - name: Run flake8
-        run: flake8 . --max-line-length=100 --max-complexity=10 --ignore=E302,E305,W391
-
-  build:
-    needs: [test, lint]
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push'
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_TOKEN }}
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: |
-            ${{ secrets.DOCKER_USERNAME }}/flask-ci-lab:latest
-            ${{ secrets.DOCKER_USERNAME }}/flask-ci-lab:${{ github.sha }}           
+        run: flake8 . --max-line-length=100 --max-complexity=10 --ignore=E302,E305,W391           
